@@ -1,7 +1,79 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
+    android:id="@+id/mainContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    tools:ignore="MergeRootFrame" />
+    android:baselineAligned="false"
+    tools:context=".MainActivity" >
+
+    <LinearLayout
+        android:id="@+id/mainMenuLayout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@android:color/background_dark" >
+        
+        <TextView
+            android:id="@+id/mainMenuTitle"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@android:color/background_dark"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:gravity="center"
+            android:text="Menu" />
+        
+        <include layout="@layout/divider_horizontal" />
+        
+        <Button 
+            android:id="@+id/mainMenuButton" 
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@android:color/background_dark"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:text="Go Home" />
+		
+        <include layout="@layout/divider_horizontal" />
+    </LinearLayout>
+
+    <include layout="@layout/divider_vertical"
+        android:background="@android:color/white" />
+    
+    <LinearLayout
+        android:id="@+id/mainContentLayout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:orientation="vertical"
+        android:background="@android:color/darker_gray" >
+        
+		<TextView
+            android:id="@+id/mainContentTitle"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@android:color/background_dark"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:gravity="center"
+            android:text="Content" />
+        
+        <include layout="@layout/divider_horizontal" 
+            android:background="@android:color/background_dark" />
+        
+        <Button 
+            android:id="@+id/mainContentButton" 
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@android:color/background_dark"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:text="Show Map1" />
+            
+        <include layout="@layout/divider_horizontal" 
+            android:background="@android:color/background_dark" />
+    </LinearLayout>
+</LinearLayout>
