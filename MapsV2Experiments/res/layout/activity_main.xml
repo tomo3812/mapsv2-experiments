@@ -22,7 +22,7 @@
             android:textColor="@android:color/white"
             android:textSize="22sp"
             android:gravity="center"
-            android:text="Menu" />
+            android:text="@string/title_main_activity_menu" />
         
         <include layout="@layout/divider_horizontal" />
         
@@ -34,7 +34,7 @@
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:gravity="center"
-            android:text="Go Home" />
+            android:text="@string/setting_home" />
 		
         <include layout="@layout/divider_horizontal" />
     </LinearLayout>
@@ -58,7 +58,7 @@
             android:textColor="@android:color/white"
             android:textSize="22sp"
             android:gravity="center"
-            android:text="Content" />
+            android:text="@string/title_main_activity_content" />
         
         <include layout="@layout/divider_horizontal" 
             android:background="@android:color/background_dark" />
@@ -71,7 +71,7 @@
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:gravity="center"
-            android:text="Show Map1" />
+            android:text="@string/setting_map" />
             
         <include layout="@layout/divider_horizontal" 
             android:background="@android:color/background_dark" />

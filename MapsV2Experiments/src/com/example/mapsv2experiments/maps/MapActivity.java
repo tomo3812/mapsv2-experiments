@@ -13,7 +13,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapActivity extends FragmentActivity {
@@ -45,7 +44,7 @@ public class MapActivity extends FragmentActivity {
 	    if (mMap == null) {
 	        mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapFragment)).getMap();
 	        if (mMap != null) {
-	        	addSampleMarkers();
+	        	setupMap();
 	        }
 	    }
 
@@ -59,7 +58,7 @@ public class MapActivity extends FragmentActivity {
 		if (mMap == null) {
 	        mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapFragment)).getMap();
 	        if (mMap != null) {
-	        	addSampleMarkers();
+	        	setupMap();
 	        }
 	    }
 	}
@@ -79,25 +78,34 @@ public class MapActivity extends FragmentActivity {
 	    	
 	    return super.onOptionsItemSelected(item);
 	}
+	
+	private void setupMap() {
+		setupMapControls();
+		addSampleMarkers();
+		mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+	}
 	    
 	private void addSampleMarkers() {
-		mMap= ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapFragment)).getMap();
-      	Marker hamburg1 = mMap.addMarker(new MarkerOptions().position(HAMBURG1).title("Hamburg"));
-      	Marker kiel1 = mMap.addMarker(new MarkerOptions().position(KIEL1).title("Kiel").snippet("Kiel is cool").icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher)));
-      	Marker hamburg2 = mMap.addMarker(new MarkerOptions().position(HAMBURG2).title("Hamburg"));
-      	Marker kiel2 = mMap.addMarker(new MarkerOptions().position(KIEL2).title("Kiel").snippet("Kiel is cool").icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher)));
-      	Marker hamburg3 = mMap.addMarker(new MarkerOptions().position(HAMBURG3).title("Hamburg"));
-      	Marker kiel3 = mMap.addMarker(new MarkerOptions().position(KIEL3).title("Kiel").snippet("Kiel is cool").icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher)));
-      	Marker hamburg4 = mMap.addMarker(new MarkerOptions().position(HAMBURG4).title("Hamburg"));
-      	Marker kiel4 = mMap.addMarker(new MarkerOptions().position(KIEL4).title("Kiel").snippet("Kiel is cool").icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher)));
-      	Marker hamburg5 = mMap.addMarker(new MarkerOptions().position(HAMBURG5).title("Hamburg"));
-      	Marker kiel5 = mMap.addMarker(new MarkerOptions().position(KIEL5).title("Kiel").snippet("Kiel is cool").icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher)));
-      	Marker hamburg6 = mMap.addMarker(new MarkerOptions().position(HAMBURG6).title("Hamburg"));
-      	Marker kiel6 = mMap.addMarker(new MarkerOptions().position(KIEL6).title("Kiel").snippet("Kiel is cool").icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher)));
-      	Marker hamburg7 = mMap.addMarker(new MarkerOptions().position(HAMBURG7).title("Hamburg"));
-      	Marker kiel7 = mMap.addMarker(new MarkerOptions().position(KIEL7).title("Kiel").snippet("Kiel is cool").icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher)));
+      	mMap.addMarker(new MarkerOptions().position(HAMBURG1).title("Hamburg"));
+      	mMap.addMarker(new MarkerOptions().position(KIEL1).title("Kiel").snippet("Kiel is cool").icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher)));
+      	mMap.addMarker(new MarkerOptions().position(HAMBURG2).title("Hamburg"));
+      	mMap.addMarker(new MarkerOptions().position(KIEL2).title("Kiel").snippet("Kiel is cool").icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher)));
+      	mMap.addMarker(new MarkerOptions().position(HAMBURG3).title("Hamburg"));
+      	mMap.addMarker(new MarkerOptions().position(KIEL3).title("Kiel").snippet("Kiel is cool").icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher)));
+      	mMap.addMarker(new MarkerOptions().position(HAMBURG4).title("Hamburg"));
+      	mMap.addMarker(new MarkerOptions().position(KIEL4).title("Kiel").snippet("Kiel is cool").icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher)));
+      	mMap.addMarker(new MarkerOptions().position(HAMBURG5).title("Hamburg"));
+      	mMap.addMarker(new MarkerOptions().position(KIEL5).title("Kiel").snippet("Kiel is cool").icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher)));
+      	mMap.addMarker(new MarkerOptions().position(HAMBURG6).title("Hamburg"));
+      	mMap.addMarker(new MarkerOptions().position(KIEL6).title("Kiel").snippet("Kiel is cool").icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher)));
+      	mMap.addMarker(new MarkerOptions().position(HAMBURG7).title("Hamburg"));
+      	mMap.addMarker(new MarkerOptions().position(KIEL7).title("Kiel").snippet("Kiel is cool").icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher)));
       	
       	mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(HAMBURG1, 15));
       	mMap.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
 	  }
+	
+	private void setupMapControls() {
+		mMap.getUiSettings().setAllGesturesEnabled(true);
+	}
 }
